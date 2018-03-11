@@ -23,6 +23,7 @@ app.post('/', function(req, res){
 		}else {
 			response = "NO";
 		}
+		response = age.amount;
 
 		res.json({
 			"speech": response,
