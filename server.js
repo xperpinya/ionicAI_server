@@ -15,6 +15,6 @@ app.post('/', function(req, res){
 })
 
 // app.listen(port, ip);
-restService.listen(process.env.PORT || 8000, function() {
+app.listen(process.env.PORT || 8000, function() {
 	console.log("Server up and listening");
   });
