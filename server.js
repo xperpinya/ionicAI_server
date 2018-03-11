@@ -13,9 +13,21 @@ app.use(bodyParser.json());
 app.post('/', function(req, res){
 	console.log(req.body)
 
-	if (req.body.result.actio == "checkVote") {
+	if (req.body.result.action == "checkVote") {
 		var age = req.body.result.parameters.age;
-		console.log(age);
+		// console.log(age);
+		var response = "No lo sé";
+
+		if (age.amount >= 18){
+			response = "SI";
+		}else {
+			response = "NO";
+		}
+
+		res.json({
+			"speech": response,
+			"displayText": response
+		})
 	}
 })
 
