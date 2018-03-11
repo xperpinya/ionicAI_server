@@ -18,12 +18,11 @@ app.post('/', function(req, res){
 		// console.log(age);
 		var response = "No lo sé";
 
-		if (age.amount >= 18){
+		if (age >= 18){
 			response = "SI";
 		}else {
 			response = "NO";
 		}
-		response = age.amount;
 
 		res.json({
 			"speech": response,
