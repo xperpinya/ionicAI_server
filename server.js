@@ -14,5 +14,7 @@ app.post('/', function(req, res){
 	console.log(req.body)
 })
 
-app.listen(port, ip);
-
+// app.listen(port, ip);
+restService.listen(process.env.PORT || 8000, function() {
+	console.log("Server up and listening");
+  });
