@@ -28,6 +28,10 @@ app.post('/', function(req, res){
 			"speech": response,
 			"displayText": response
 		})
+	} else if (req.body.result.action == "Add"){
+		var sum = parseFloat(req.body.result.parameters.number1) + parseFloat(req.body.result.parameters.number2);
+		var responseText = "La suma de " + req.body.result.parameters.number1 + " y " +req.body.result.parameters.number2 + " es " + sum;
+		res.json({"speech": responseText, "displayText": sum})
 	}
 })
 
