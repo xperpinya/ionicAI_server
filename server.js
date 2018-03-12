@@ -32,6 +32,11 @@ app.post('/', function(req, res){
 		var sum = parseFloat(req.body.result.parameters.number1) + parseFloat(req.body.result.parameters.number2);
 		var responseText = "La suma de " + req.body.result.parameters.number1 + " y " +req.body.result.parameters.number2 + " es " + sum;
 		res.json({"speech": responseText, "displayText": sum})
+		
+	} else if (req.body.result.action == "Substract"){
+		var resta = parseFloat(req.body.result.parameters.number1) - parseFloat(req.body.result.parameters.number2);
+		var responseText = "La resta de " + req.body.result.parameters.number1 + " menos " +req.body.result.parameters.number2 + " es " + resta;
+		res.json({"speech": responseText, "displayText": resta})
 	}
 })
 
