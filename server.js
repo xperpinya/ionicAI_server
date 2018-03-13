@@ -50,12 +50,14 @@ app.post('/', function(req, res){
 	} else if (request.body.result.action == "Get-Weather"){
 		var city = req.body.result.parameters.city;
 		var url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=ea2a695ec3da19963aff0cbdc2ce78c3";
-request(url, function(error,response,body){
-	var temp = Math.round(JSON.parse(body).main.temp - 273.15);
-	var responseText = "La temperatura en " + city + " es " + temp + " grados.";
-	res.json({"speech": responseText, "displayText": responseText})
 
-})
+		res.json({"speech": city, "displayText": city})
+
+		// request(url, function(error,response,body){
+		// 	var temp = Math.round(JSON.parse(body).main.temp - 273.15);
+		// 	var responseText = "La temperatura en " + city + " es " + temp + " grados.";
+		// 	res.json({"speech": responseText, "displayText": responseText})
+		// })
 
 	}
 })
