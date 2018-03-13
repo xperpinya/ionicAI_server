@@ -47,11 +47,29 @@ app.post('/', function(req, res){
 		var quo = parseFloat(req.body.result.parameters.number1) / parseFloat(req.body.result.parameters.number2);
 		var responseText = "La división de " + req.body.result.parameters.number1 + " entre " +req.body.result.parameters.number2 + " es " + (quo);
 		res.json({"speech": responseText, "displayText": quo})
-	} else if (request.body.result.action == "Get-Weather"){
-		var city = req.body.result.parameters.city;
-		var url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=ea2a695ec3da19963aff0cbdc2ce78c3";
+	} else if (req.body.result.action == "Get-Weather"){
+        
+        var city = req.body.result.parameters.city;
+        
+        var url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=ea2a695ec3da19963aff0cbdc2ce78c3";
+        
+        request(url, function(error, response, body){
+            
+            var temp = Math.round(JSON.parse(body).main.temp - 273.15);
+            
+            var responseText = "Temperature in " + city + " is " + temp + " degree centigrade.";
+            
+            res.json({ "speech": responseText, "displayText": responseText })
+            
+        })
+	
+	
+	
+	// else if (request.body.result.action == "Get-Weather"){
+	// 	var city = req.body.result.parameters.city;
+	// 	var url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=ea2a695ec3da19963aff0cbdc2ce78c3";
 
-		res.json({"speech": city, "displayText": city})
+	// 	res.json({"speech": city, "displayText": city})
 
 		// request(url, function(error,response,body){
 		// 	var temp = Math.round(JSON.parse(body).main.temp - 273.15);
