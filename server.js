@@ -32,11 +32,20 @@ app.post('/', function(req, res){
 		var sum = parseFloat(req.body.result.parameters.number1) + parseFloat(req.body.result.parameters.number2);
 		var responseText = "La suma de " + req.body.result.parameters.number1 + " y " +req.body.result.parameters.number2 + " es " + sum;
 		res.json({"speech": responseText, "displayText": sum})
-		
+
 	} else if (req.body.result.action == "Substract"){
 		var resta = parseFloat(req.body.result.parameters.number1) - parseFloat(req.body.result.parameters.number2);
 		var responseText = "La resta de " + req.body.result.parameters.number1 + " menos " +req.body.result.parameters.number2 + " es " + resta;
 		res.json({"speech": responseText, "displayText": resta})
+	} else if (req.body.result.action == "Multiply"){
+		var product = parseFloat(req.body.result.parameters.number1) * parseFloat(req.body.result.parameters.number2);
+		var responseText = "La multiplicación de " + req.body.result.parameters.number1 + " por " +req.body.result.parameters.number2 + " es " + product;
+		res.json({"speech": responseText, "displayText": product})
+		
+	} else if (req.body.result.action == "Divide"){
+		var quo = parseFloat(req.body.result.parameters.number1) / parseFloat(req.body.result.parameters.number2);
+		var responseText = "La división de " + req.body.result.parameters.number1 + " entre " +req.body.result.parameters.number2 + " es " + (quo);
+		res.json({"speech": responseText, "displayText": quo})
 	}
 })
 
