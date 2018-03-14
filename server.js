@@ -88,6 +88,7 @@ app.post('/', function(req, res){
 				  "imageUrl": pdfAktios,
 				  "type": 3
 				}]
+				
 		})
 	}
 })
