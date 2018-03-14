@@ -74,14 +74,15 @@ app.post('/', function(req, res){
 		// 	res.json({"speech": responseText, "displayText": responseText})
 		// })
 
-	} else if (request.body.result.action == "Get-archive"){
-		// var pdfAktios = app.use(express.static(path.join(__dirname,"archives/Corporativo.pdf")));
-		var pdfAktios = "https://www.aktiosdigitalservices.com/assets/Aktios_Digital_Services.pdf";
+	} else if (req.body.result.action == "Get-archive"){
+		var pdfAktios = app.use(express.static(path.join(__dirname,"archives/Corporativo.pdf")));
+		// var pdfAktios = "https://www.aktiosdigitalservices.com/assets/Aktios_Digital_Services.pdf";
 		// res.json({"url": pdfAktios})s
 		var response = "Este el pedido que me has solicitado";
 		res.json({
 			"speech": response,
-			"displayText": response
+			"displayText": response,
+			"url": pdfAktios
 		})
 	}
 })
