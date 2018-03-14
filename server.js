@@ -77,12 +77,12 @@ app.post('/', function(req, res){
 	} else if (req.body.result.action == "Get-archive"){
 		// var pdfAktios = app.use(express.static(path.join(__dirname,"archives/Corporativo.pdf")));
 		var pdfAktios = "https://www.aktiosdigitalservices.com/assets/Aktios_Digital_Services.pdf";
-		// res.json({"url": pdfAktios})s
+		// res.json({"url": pdfAktios})
 		var response = "Este el pedido que me has solicitado";
 		res.json({
 			"speech": response,
 			"displayText": response,
-			"url": pdfAktios
+			"imageUrl": pdfAktios
 		})
 	}
 })
