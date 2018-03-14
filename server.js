@@ -74,6 +74,10 @@ app.post('/', function(req, res){
 		// 	res.json({"speech": responseText, "displayText": responseText})
 		// })
 
+	} else if (request.body.result.action == "Get-archive"){
+		var pdfAktios = app.use(express.static(path.join(__dirname,"archives/Corporativo.pdf")));
+
+		res.json({"url": pdfAktios})
 	}
 })
 
