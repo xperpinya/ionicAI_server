@@ -85,8 +85,9 @@ app.post('/', function(req, res){
 			"displayText": response,
 			"messages": [
 				{
-				  "imageUrl": pdfAktios,
-				  "type": 3
+				  "payload": {
+					  "imageURL": pdfAktios},
+				  "type": 4
 				}]
 				
 		})
