@@ -83,12 +83,13 @@ app.post('/', function(req, res){
 		res.json({
 			"speech": response,
 			"displayText": response,
-			"messages": [
-				{
-				  "payload": {
-					  "imageURL": pdfAktios},
-				  "type": 4
-				}]
+			"data":{"imageURL":pdfAktios}
+			// "messages": [
+			// 	{
+			// 	  "payload": {
+			// 		  "imageURL": pdfAktios},
+			// 	  "type": 4
+			// 	}]
 				
 		})
 	}
